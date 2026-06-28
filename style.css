@@ -1,0 +1,43 @@
+*{
+  /* padding: 0;
+  margin: 0; */
+  box-sizing: border-box;
+}
+button{
+  font: inherit;
+  padding: 15px 25px 15px 25px;
+  border: 2px solid;
+  border-radius: 40px;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.container{
+    width: 90%;
+    /* height: 85vh; */
+    padding: 10px;
+    border: 2px solid;
+    
+}
+.calculation-box{
+  background: rgb(243, 243, 243);
+  margin-top: 60px;
+  border: 2px solid;
+  border-radius: 3px;
+  width: 100%;
+  height: 80px;
+}
+.buttons-box {
+ margin: 10px;
+  
+}
+.buttons-box .p{
+  font-size: 30px;
+  display: flex;
+  margin-top: 15px;
+  justify-content: space-between;
+}
