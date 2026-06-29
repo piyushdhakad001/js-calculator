@@ -1,6 +1,8 @@
 const calculationBox = document.querySelector('.calculation-box');
+const isEqualButton = document.querySelector(".is-equal-button");
 
  let calculation = '';
+
 
 const button = document.querySelectorAll(".button");
 
@@ -12,7 +14,10 @@ button.forEach(button => {
 })
 
 function addClickedButton(button){
- calculation += button.innerHTML;
-calculationBox.innerHTML = calculation;
+ calculation += button.textContent;
+calculationBox.textContent = calculation;
+
+
 }
+
 
