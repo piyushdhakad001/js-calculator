@@ -1,5 +1,6 @@
 const calculationBox = document.querySelector('.calculation-box');
 const liveAnswerBox = document.querySelector('.answer-box');
+const clearButton = document.querySelector(".clear-button");
 const isEqualButton = document.querySelector(".is-equal-button");
 
  let calculation = '';
@@ -52,3 +53,8 @@ isEqualButton.addEventListener('click', () => {
   calculationBox.textContent = eval(toMathExpression(calculation));
 })
 
+clearButton.addEventListener('click', () => {
+  calculation = ''
+   calculationBox.textContent = '';
+   liveAnswerBox.textContent = '';
+});
