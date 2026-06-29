@@ -3,6 +3,11 @@ const liveAnswerBox = document.querySelector('.answer-box');
 const clearButton = document.querySelector(".clear-button");
 const isEqualButton = document.querySelector(".is-equal-button");
 let historyBox = document.querySelector(".history-box");
+const clearHistory = document.querySelector(".clear-history")
+
+let history = JSON.parse(localStorage.getItem("history")) || [];
+
+renderHistory();
 
 
  let calculation = '';
@@ -28,16 +33,6 @@ function addClickedButton(button){
  calculation += button.textContent;
 calculationBox.textContent = calculation;
 
-// LONG CODE
-//  let hasOperator = false;
-// for(let i = 0; i < operators.length; i++) {
-//   if(calculation.includes(operators[i])) {
-//     hasOperator = true;
-//     break;
-//   }
-// }
-
-// SHORTHAND
 const hasOperator = operators.some(op =>
 calculation.includes(op)
  );
@@ -52,7 +47,6 @@ calculation.includes(op)
 }
 
 let historyText = document.createElement('p');
-let history = [];
 
 isEqualButton.addEventListener('click', () => {
 try{
@@ -63,14 +57,24 @@ try{
     operation: calculation,
     result: result
   })
+
+  localStorage.setItem("history", JSON.stringify(history));
+
   calculationBox.textContent = result;
   calculation = String(result);
-  liveAnswerBox.textContent = '';
+  // calculationBox.textContent = '';
+  // liveAnswerBox.textContent = '';
    renderHistory();
 } catch {
  calculationBox.textContent = 'Error';
 }
 
+});
+
+clearButton.addEventListener('click', () => {
+  calculation = ''
+   calculationBox.textContent = '';
+   liveAnswerBox.textContent = '';
 });
 
 function renderHistory(){
@@ -85,11 +89,11 @@ function renderHistory(){
   });
 }
 
+clearHistory.addEventListener('click', () => {
+  localStorage.removeItem("history");
+  historyBox.textContent = '';
+})
 
-clearButton.addEventListener('click', () => {
-  calculation = ''
-   calculationBox.textContent = '';
-   liveAnswerBox.textContent = '';
-});
+
 
 
