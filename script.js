@@ -23,8 +23,9 @@ function toMathExpression(str){
 function addClickedButton(button){
  calculation += button.textContent;
 calculationBox.textContent = calculation;
-
-
 }
 
+isEqualButton.addEventListener('click', () => {
+  calculationBox.textContent = eval(toMathExpression(calculation));
+})
 
