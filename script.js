@@ -39,7 +39,7 @@ calculation.includes(op)
 
   if (hasOperator) {
     try {
-      liveAnswerBox.textContent = eval(toMathExpression(calculation)); // live result
+      liveAnswerBox.textContent = parseFloat(eval(toMathExpression(calculation)).toFixed(3));; // live result
     } catch {
       liveAnswerBox.textContent = '...'; // incomplete expression like "5+"
     }
@@ -50,7 +50,7 @@ let historyText = document.createElement('p');
 
 isEqualButton.addEventListener('click', () => {
 try{
-  const result = eval(toMathExpression(calculation));
+  const result = parseFloat(eval(toMathExpression(calculation)).toFixed(3));
 
   // save to history array
   history.push({
@@ -90,8 +90,10 @@ function renderHistory(){
 }
 
 clearHistory.addEventListener('click', () => {
+  history = [];
   localStorage.removeItem("history");
   historyBox.textContent = '';
+  
 })
 
 
