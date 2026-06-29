@@ -13,6 +13,13 @@ button.forEach(button => {
   });
 })
 
+function toMathExpression(str){
+ return str
+ .replace(/×/g, '*')
+ .replace(/÷/g, '/')
+ .replace(/−/g, '-');
+}
+
 function addClickedButton(button){
  calculation += button.textContent;
 calculationBox.textContent = calculation;
