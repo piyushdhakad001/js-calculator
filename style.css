@@ -96,3 +96,82 @@ body{
   cursor: pointer;
   border-radius: 10px;
 }
+
+@media (max-width: 700px){
+ *{
+  font-size: 10px;
+ }
+ .container{
+  padding: 3px;
+  border-radius: 5px;
+ }
+ button{
+  font-size: 10px;
+   padding: 1px 4px 1px 4px;
+   border: 1px solid;
+ }
+ .calculation-box{
+  border: 1px solid;
+  border-radius: 4px;
+  min-height: 30px;
+ }
+ .answer-box{
+  border: 1px solid;
+  border-radius: 4px;
+  min-height: 30px;
+ }
+ .history-text{
+  font-size: 8px;
+
+ }
+ .history-box{
+  padding-right: 2px;
+  border: 1px solid;
+  border-radius: 4px;
+  min-height: 30px;
+ }
+ .clear-history{
+  font-size: 8px;
+  border: 1px solid;
+  border-radius: 4px;
+  min-height: 30px;
+ }
+}
+
+@media (min-width: 700px) and (max-width: 1100px){
+ *{
+  font-size: 20px;
+ }
+ button{
+  font-size: 20px;
+   padding: 4px 10px 4px 10px;
+   
+   border: 1px solid;
+ }
+ .calculation-box{
+  border: 1px solid;
+  border-radius: 4px;
+  min-height: 50px;
+ }
+ .answer-box{
+  border: 1px solid;
+  border-radius: 4px;
+  min-height: 50px;
+ }
+ .history-text{
+  font-size: 15px;
+  /* margin-right: 2px; */
+ }
+ .history-box{
+  padding-right: 5px;
+  border: 1px solid;
+  border-radius: 4px;
+  min-height: 50px;
+ }
+ .clear-history{
+  font-size: 18px;
+  border: 4px solid;
+  border-radius: 4px;
+  min-height: 50px;
+ }
+}
