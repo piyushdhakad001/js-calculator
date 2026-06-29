@@ -2,6 +2,8 @@ const calculationBox = document.querySelector('.calculation-box');
 const liveAnswerBox = document.querySelector('.answer-box');
 const clearButton = document.querySelector(".clear-button");
 const isEqualButton = document.querySelector(".is-equal-button");
+let historyBox = document.querySelector(".history-box");
+
 
  let calculation = '';
 const operators = ['+', '÷', '×', '−'];
@@ -49,12 +51,45 @@ calculation.includes(op)
   }
 }
 
+let historyText = document.createElement('p');
+let history = [];
+
 isEqualButton.addEventListener('click', () => {
-  calculationBox.textContent = eval(toMathExpression(calculation));
-})
+try{
+  const result = eval(toMathExpression(calculation));
+
+  // save to history array
+  history.push({
+    operation: calculation,
+    result: result
+  })
+  calculationBox.textContent = result;
+  calculation = String(result);
+  liveAnswerBox.textContent = '';
+   renderHistory();
+} catch {
+ calculationBox.textContent = 'Error';
+}
+
+});
+
+function renderHistory(){
+  historyBox.innerHTML = '';
+
+  history.forEach(entry => {
+    const historyText = document.createElement('p');
+    historyText.classList.toggle('history-text');
+    historyText.textContent = `${entry.operation} = ${entry.result}`;
+    
+    historyBox.appendChild(historyText);
+  });
+}
+
 
 clearButton.addEventListener('click', () => {
   calculation = ''
    calculationBox.textContent = '';
    liveAnswerBox.textContent = '';
 });
+
+
