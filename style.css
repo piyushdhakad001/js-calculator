@@ -2,11 +2,11 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
 }
 
 body {
-  background: #e4e8ee;
+  background: #0f172a;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -16,85 +16,105 @@ body {
 .container {
   width: 90%;
   max-width: 340px;
-  background: white;
-  padding: 15px;
-  border: 1px solid #b8c0cc;
-  border-radius: 10px;
+  background: #1e293b;
+  padding: 18px;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* ---------- display ---------- */
 .calculation-box,
 .answer-box {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background: #f3f5f8;
-  border: 1px solid #b8c0cc;
-  border-radius: 6px;
-  padding: 0 12px;
-  min-height: 50px;
+  background: #0f172a;
+  border-radius: 10px;
+  padding: 12px 15px;
+  min-height: 52px;
+  text-align: right;
   overflow-x: auto;
   white-space: nowrap;
 }
 
 .calculation-box {
-  font-size: 24px;
-  color: #222;
+  font-size: 26px;
+  color: #f1f5f9;
 }
 
 .answer-box {
-  font-size: 20px;
-  color: #666;
-  margin-top: 6px;
+  font-size: 18px;
+  color: #94a3b8;
+  margin-top: 8px;
 }
 
 /* ---------- buttons ---------- */
 .buttons-box {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .buttons-box .p {
   display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 button {
   flex: 1;
-  padding: 12px 0;
-  font-size: 22px;
-  background: #eef1f6;
-  border: 1px solid #b8c0cc;
-  border-radius: 6px;
+  padding: 14px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #f1f5f9;
+  background: #334155;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
+  transition: background 0.15s;
 }
 
 button:hover {
-  background: #dde3ec;
+  background: #475569;
 }
 
 button:active {
-  background: #c9d1de;
+  transform: scale(0.96);
+}
+
+button:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* operators: last button in the first three rows, and + in the last row */
+.p1 button:last-child,
+.p2 button:last-child,
+.p3 button:last-child,
+.p4 .button:nth-child(3) {
+  background: #1e3a5f;
+  color: #93c5fd;
+}
+
+.p1 button:last-child:hover,
+.p2 button:last-child:hover,
+.p3 button:last-child:hover,
+.p4 .button:nth-child(3):hover {
+  background: #264b78;
 }
 
 .clear-button {
-  background: #f8d9d6;
-  border-color: #dba8a3;
-  color: #a02a20;
+  background: #5b1d1d;
+  color: #fecaca;
 }
 
 .clear-button:hover {
-  background: #f1c3be;
+  background: #7a2626;
 }
 
 .is-equal-button {
-  background: #3b5b9a;
-  border-color: #3b5b9a;
+  background: #2563eb;
   color: white;
 }
 
 .is-equal-button:hover {
-  background: #2f4a80;
+  background: #1d4fd0;
 }
 
 /* ---------- history ---------- */
@@ -102,48 +122,48 @@ button:active {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: flex-start;
-  min-height: 50px;
-  max-height: 140px;
+  min-height: 60px;
+  max-height: 90px;
   overflow-y: auto;
-  margin-top: 10px;
-  padding: 8px 12px;
-  border: 1px solid #b8c0cc;
-  border-radius: 6px;
+  margin-top: 16px;
+  padding: 10px 15px;
+  background: #0f172a;
+  border-radius: 10px;
 }
 
 .history-text {
-  font-size: 16px;
-  color: #444;
-  padding: 2px 0;
+  font-size: 15px;
+  color: #94a3b8;
+  padding: 3px 0;
 }
 
 .clear-history {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
+  min-height: 42px;
   margin-top: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  background: #a02a20;
-  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fca5a5;
+  border: 1px solid #7f1d1d;
+  border-radius: 10px;
   cursor: pointer;
+  transition: background 0.15s;
 }
 
 .clear-history:hover {
-  background: #861f17;
+  background: #5b1d1d;
 }
 
 /* ---------- small screens ---------- */
 @media (max-width: 400px) {
   .container {
-    padding: 10px;
+    padding: 12px;
   }
 
   .calculation-box {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .answer-box {
@@ -151,7 +171,7 @@ button:active {
   }
 
   button {
-    padding: 10px 0;
+    padding: 12px 0;
     font-size: 18px;
   }
 
