@@ -55,7 +55,7 @@ git clone YOUR_REPOSITORY_URL
 
 ## Live Demo
 
-[Click Here](YOUR_LIVE_DEMO_URL)
+[Click Here](https://piyushdhakad001.github.io/js-calculator/)
 
 ---
 
